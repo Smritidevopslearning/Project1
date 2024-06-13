@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+         
+       stage('checkout') {
+          steps {
+            git url: 'https://github.com/Smritidevopslearning/Project1.git', branch: 'main'
+          }
+         
+       } 
+       stage('Initialize Terraform') {
+          steps {
+            scripts {
+                sh 'terraform init'
+            }
+          }
+       }
+    }
+}
