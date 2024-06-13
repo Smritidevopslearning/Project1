@@ -48,5 +48,13 @@ pipeline {
           }
         }
        }
+        post {
+          always {
+            // Clean up the workspace
+            //cleanWs()
+	    sh 'echo All done'
+        }
+    }
+        
     }
 
