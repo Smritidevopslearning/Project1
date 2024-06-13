@@ -45,6 +45,7 @@ pipeline {
              sh '''
              pwd
              terraform apply "tfplan" -no-color
+           '''
           }
         }
        }
