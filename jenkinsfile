@@ -34,6 +34,13 @@ pipeline {
                 '''
             }
         } 
+        stage('Approve') {
+            steps {
+                // Wait for manual approval
+                input message: 'Do you want to apply the changes?', ok: 'Apply'
+            }
+        }
+        
        }
     }
 
