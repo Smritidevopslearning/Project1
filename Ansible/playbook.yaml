@@ -1,0 +1,35 @@
+---
+- hosts: web01
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Install Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Install Python
+      apt:
+        name: python3
+        state: present
+
+
+    - name: Update apt cache after adding Jenkins repository
+      apt:
+        update_cache: yes
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+
+    - name: check jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: yes
+
+  
+
