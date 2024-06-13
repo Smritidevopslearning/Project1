@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                 pwd
-                terraform plan -out=tfplan
+                terraform plan -out=tfplan -no-color
                 '''
             }
         } 
