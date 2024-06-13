@@ -11,13 +11,21 @@ pipeline {
        } 
        stage('Initialize Terraform') {
           steps {
-               sh '''
+                sh '''
 		        pwd
-      		    terraform init -no-color
+		        terraform init -no-color
 		'''
-            
-            
+            }
           }
+
+        stage('terraform plan') {
+            steps {
+                sh '''
+                pwd
+                terraform plan -out=tfplan
+                '''
+            }
+        } 
        }
     }
-}
+
