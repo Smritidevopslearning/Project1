@@ -11,9 +11,12 @@ pipeline {
        } 
        stage('Initialize Terraform') {
           steps {
-            scripts {
-                sh 'terraform init'
-            }
+               sh '''
+		        pwd
+      		    terraform init -no-color
+		'''
+            
+            
           }
        }
     }
