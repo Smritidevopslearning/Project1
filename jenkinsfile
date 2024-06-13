@@ -40,7 +40,13 @@ pipeline {
                 input message: 'Do you want to apply the changes?', ok: 'Apply'
             }
         }
-        
+        stage('Apply changes') {
+           steps{
+             sh '''
+             pwd
+             terraform apply "tfplan" -no-color
+          }
+        }
        }
     }
 
